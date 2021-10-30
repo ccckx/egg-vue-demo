@@ -108,6 +108,7 @@ const updateDefaultConfig = ({fileName, defaultPort, pro}) => {
   .replace(/\$\{port\}/g, defaultPort)
   .replace(/\$\{pro\}/g, pro)
 }
+
 module.exports = {
   getProList,
   getConfig,

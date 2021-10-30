@@ -1,4 +1,5 @@
 import createApp from './main.js'
+import { setState } from './utils'
 
 export default (context) => {
   return new Promise((resolve, reject) => {
@@ -25,12 +26,7 @@ export default (context) => {
           }
         })
       ).then((a) => {
-        let state = {}
-        a.map(item => {
-          state = Object.assign(state, item)
-        })
-        store.commit('initSsrState', state)
-        context.state = store.state
+        setState({a, context, store})
         resolve(app);
       }).catch(reject)
     }, reject);
