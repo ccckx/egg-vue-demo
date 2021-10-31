@@ -3,9 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const isProduction = process.env.NODE_ENV === 'production'
 const baseConfig = {
 	outputDir: '../app/web/${pro}web',
-	publicPath: isProduction ? '../${pro}web' : 'http://localhost:${port}',
+	publicPath: isProduction ? '../${pro}web' : 'http://127.0.0.1:${port}',
 	devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+		headers: { 'Access-Control-Allow-Origin': '*' }
   },
 	configureWebpack: {
 		entry: './pro/${pro}/main.js',
